@@ -1,6 +1,8 @@
-FROM alpine
+FROM node:alpine
 
-RUN apk add --update redis
-RUN apk add --update gcc
+COPY . /app
+WORKDIR /app
 
-CMD [ "redis-server" ]
+RUN yarn
+
+CMD ["yarn", "start"]
