@@ -1,0 +1,7 @@
+{
+  "name": "docker-playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ramzan Chasygov <theliketurbo@gmail.com>",
+  "license": "MIT"
+}
