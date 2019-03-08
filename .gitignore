@@ -1,2 +1,5 @@
-# dependecies
+# idle config
+.vscode/
+
+# dependencies
 node_modules/
