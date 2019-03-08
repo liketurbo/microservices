@@ -1,22 +1,11 @@
 {
   "name": "docker-playground",
   "version": "1.0.0",
+  "private": true,
   "main": "index.js",
   "author": "Ramzan Chasygov <theliketurbo@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "start": "ts-node src/index.ts"
-  },
-  "dependencies": {
-    "express": "^4.16.4",
-    "lodash": "^4.17.11",
-    "redis": "^2.8.0"
-  },
-  "devDependencies": {
-    "@types/express": "^4.16.1",
-    "@types/lodash": "^4.14.122",
-    "@types/redis": "^2.8.10",
-    "ts-node": "^8.0.2",
-    "typescript": "^3.3.3333"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }
