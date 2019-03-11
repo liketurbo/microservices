@@ -8,3 +8,12 @@ services:
       - '3000:3000'
     volumes:
       - .:/usr/app
+      - /usr/app/node_modules
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    command: ['yarn', 'test']
