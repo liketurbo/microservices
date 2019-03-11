@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
     "@types/jest": "24.0.9",
     "@types/node": "11.10.5",
     "@types/react": "16.8.7",
     "@types/react-dom": "16.8.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
     "typescript": "3.3.3333"
   },
@@ -26,5 +28,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "workspaces": {
+    "nohoist": [
+      "*",
+      "**/*"
+    ]
+  }
 }
