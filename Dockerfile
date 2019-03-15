@@ -2,10 +2,10 @@ FROM node:alpine as react
 
 WORKDIR /usr/app
 
-COPY package.json .
+COPY packages/frontend/package.json .
 RUN yarn
 
-COPY . .
+COPY packages/frontend .
 RUN yarn build
 
 FROM nginx
