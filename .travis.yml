@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run liketurbo/docker-playground yarn test --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-2'
+  app: 'docker-playground'
+  env: 'DockerPlayground-env'
+  bucket_name: 'elasticbeanstalk-us-east-2-792742522414'
+  bucket_path: 'docker-playground'
+  access_key_id: $ACCESS_KEY_ID
+  secret_access_key:
+    secure: $SECRET_ACCESS_KEY
+  on:
+    branch: master
