@@ -21,6 +21,14 @@ class App extends Component {
           >
             Learn React
           </a>
+          <a
+            className="App-link"
+            href="https://github.com/liketurbo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ramzan's github page
+          </a>
         </header>
       </div>
     );
