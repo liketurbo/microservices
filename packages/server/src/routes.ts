@@ -8,22 +8,22 @@ const hgetallAsync = promisify(redisClient.hgetall).bind(redisClient);
 
 const routes = (app: Express) => {
   app.get('/', (_, res) => {
-    res.send('Hello, World!');
+    return res.send('Hello, World!');
   });
 
-  app.get('/api/values/all', async (_, res) => {
+  app.get('/values/all', async (_, res) => {
     const values = await pgClient.query('SELECT * from values');
 
-    res.send(values.rows);
+    return res.send(values.rows);
   });
 
-  app.get('/api/values/current', async (_, res) => {
+  app.get('/values/current', async (_, res) => {
     const values = await hgetallAsync('values');
 
     return res.send(values);
   });
 
-  app.post('/api/values', async (req, res) => {
+  app.post('/values', async (req, res) => {
     const index = req.body.index;
 
     if (parseInt(index, 10) > 40) {
