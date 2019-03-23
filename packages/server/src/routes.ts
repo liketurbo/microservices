@@ -11,19 +11,19 @@ const routes = (app: Express) => {
     res.send('Hello, World!');
   });
 
-  app.get('/values/all', async (_, res) => {
+  app.get('/api/values/all', async (_, res) => {
     const values = await pgClient.query('SELECT * from values');
 
     res.send(values.rows);
   });
 
-  app.get('/values/current', async (_, res) => {
+  app.get('/api/values/current', async (_, res) => {
     const values = await hgetallAsync('values');
 
-    res.send(values);
+    return res.send(values);
   });
 
-  app.post('/values', async (req, res) => {
+  app.post('/api/values', async (req, res) => {
     const index = req.body.index;
 
     if (parseInt(index, 10) > 40) {

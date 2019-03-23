@@ -4,7 +4,14 @@ services:
     image: 'postgres'
   redis:
     image: 'redis'
-  server:
+  proxy:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./packages/nginx
+    ports:
+      - '3000:80'
+  api:
     build:
       dockerfile: Dockerfile.dev
       context: ./packages/server
@@ -32,4 +39,4 @@ services:
       context: ./packages/worker
     volumes:
       - /usr/app/node_modules
-      - ./packages/web:/usr/app
+      - ./packages/worker:/usr/app
