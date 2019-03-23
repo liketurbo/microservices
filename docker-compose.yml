@@ -1,0 +1,35 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres'
+  redis:
+    image: 'redis'
+  server:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./packages/server
+    volumes:
+      - /usr/app/node_modules
+      - ./packages/server:/usr/app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - PG_HOST=postgres
+      - PG_PORT=5432
+      - PG_DATABASE=postgres
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres_password
+  web:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./packages/web
+    volumes:
+      - /usr/app/node_modules
+      - ./packages/web:/usr/app
+  worker:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./packages/worker
+    volumes:
+      - /usr/app/node_modules
+      - ./packages/web:/usr/app

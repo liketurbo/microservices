@@ -3,7 +3,7 @@ FROM node:alpine
 # bug watchers count
 RUN echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
 
-WORKDIR /var/app
+WORKDIR /usr/app
 
 COPY package.json .
 RUN yarn
