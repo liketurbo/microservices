@@ -1,18 +1,8 @@
-import redis from 'redis';
-
 import fib from './fib';
-import { redisHost, redisPort } from './keys';
+import { client, publisher } from './redis';
 
-const client = redis.createClient({
-  host: redisHost,
-  port: redisPort,
-  retry_strategy: () => 1000
+publisher.on('message', (_, msg) => {
+  client.hset('values', msg, fib(parseInt(msg)).toString());
 });
 
-const clone = client.duplicate();
-
-clone.on('message', (_, msg) => {
-  client.hset('values', msg, fib(msg));
-});
-
-clone.subscribe('insert');
+publisher.subscribe('insert');

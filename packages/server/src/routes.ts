@@ -1,10 +1,7 @@
 import { Express } from 'express';
-import { promisify } from 'util';
 
 import pgClient from './pg';
-import redisClient from './redis';
-
-const hgetallAsync = promisify(redisClient.hgetall).bind(redisClient);
+import { client, publisher } from './redis';
 
 const routes = (app: Express) => {
   app.get('/', (_, res) => {
@@ -18,9 +15,9 @@ const routes = (app: Express) => {
   });
 
   app.get('/values/current', async (_, res) => {
-    const values = await hgetallAsync('values');
-
-    return res.send(values);
+    client.hgetall('values', (_, values) => {
+      return res.send(values);
+    });
   });
 
   app.post('/values', async (req, res) => {
@@ -30,8 +27,8 @@ const routes = (app: Express) => {
       return res.status(422).send('Index too high');
     }
 
-    redisClient.hset('values', index, '-1');
-    redisClient.publish('insert', index);
+    client.hset('values', index, '-1');
+    publisher.publish('insert', index);
 
     pgClient.query('INSERT INTO values(number) VALUES($1)', [index]);
 
