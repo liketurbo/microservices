@@ -3,20 +3,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t liketurbo/docker-playground -f packages/frontend/Dockerfile.dev packages/frontend
+  - docker build -t liketurbo/docker-playground-test -f ./packages/web/Dockerfile.dev ./packages/web
 
 script:
-  - docker run liketurbo/docker-playground yarn test --coverage
+  - docker run liketurbo/docker-playground-test yarn test --coverage
 
-deploy:
-  provider: elasticbeanstalk
-  region: 'us-east-2'
-  app: 'docker-playground'
-  env: 'DockerPlayground-env'
-  bucket_name: 'elasticbeanstalk-us-east-2-792742522414'
-  bucket_path: 'docker-playground'
-  access_key_id: $ACCESS_KEY_ID
-  secret_access_key:
-    secure: $SECRET_ACCESS_KEY
-  on:
-    branch: master
+after_success:
+  - docker build -t liketurbo/docker-playground-nginx ./packages/nginx
+  - docker build -t liketurbo/docker-playground-server ./packages/server
+  - docker build -t liketurbo/docker-playground-web ./packages/web
+  - docker build -t liketurbo/docker-playground-worker ./packages/worker
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push liketurbo/docker-playground-nginx
+  - docker push liketurbo/docker-playground-server
+  - docker push liketurbo/docker-playground-web
+  - docker push liketurbo/docker-playground-worker
