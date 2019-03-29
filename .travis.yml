@@ -20,3 +20,16 @@ after_success:
   - docker push liketurbo/docker-playground-server
   - docker push liketurbo/docker-playground-web
   - docker push liketurbo/docker-playground-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: docker-playground
+  env: DockerPlayground-env
+  bucket_name: elasticbeanstalk-us-east-2-792742522414
+  bucket_path: docker-playground
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY

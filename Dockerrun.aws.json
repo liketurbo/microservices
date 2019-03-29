@@ -1,0 +1,40 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "liketurbo/docker-playground-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["web", "server"],
+      "memory": 128
+    },
+    {
+      "name": "server",
+      "image": "liketurbo/docker-playground-server",
+      "hostname": "api",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "web",
+      "image": "liketurbo/docker-playground-web",
+      "hostname": "web",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "worker",
+      "image": "liketurbo/docker-playground-worker",
+      "hostname": "worker",
+      "essential": false,
+      "memory": 128
+    }
+  ]
+}
