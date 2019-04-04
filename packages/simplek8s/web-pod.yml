@@ -9,4 +9,4 @@ spec:
     - name: web
       image: liketurbo/docker-playground-web
       ports:
-        - containerPort: 3000
+        - containerPort: 65535
