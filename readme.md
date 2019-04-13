@@ -9,14 +9,16 @@
 
 ## Docker
 
-### Linux namespaces
+### Linux namespace kinds
 
 - Mount(mnt)
 - Process ID (pid)
 - Network (net)
 - Inter-process communications (ipc)
-- UTS
+- UTS (hostname and domain name)
 - User ID (user)
+
+### Linux control groups
 
 ## Kubernetes
 

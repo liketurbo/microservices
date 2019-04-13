@@ -12,11 +12,19 @@ spec:
       labels:
         component: postgres
     spec:
+      volumes:
+        - name: postgres-volume
+          persistentVolumeClaim:
+            claimName: postgres-volume
       containers:
         - name: postgres
           image: postgres
           ports:
             - containerPort: 5432
+          volumeMounts:
+            - name: postgres-volume
+              mountPath: /var/lib/postgresql/data
+              subPath: postgres
           resources:
             limits:
               memory: 512Mi
