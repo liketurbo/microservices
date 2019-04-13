@@ -1,13 +1,29 @@
-# Docker
+# Microservices
 
-## Project structure
+## Project structure (Microservices)
 
 - k8s - kubernetes
 - web - frontend code
 - server - backend code
 - worker - service
 
+## Docker
+
+### Linux namespaces
+
+- Mount(mnt)
+- Process ID (pid)
+- Network (net)
+- Inter-process communications (ipc)
+- UTS
+- User ID (user)
+
 ## Kubernetes
+
+### Storage
+
+- Volume
+- Persistent volume (cluster range)
 
 ### Resource
 
