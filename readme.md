@@ -37,10 +37,11 @@
 > - cpu defined in `m (millicores, 1 / 1000 core)`
 > - memory defined in bytes `1Mi = 1024Ki` `1M = 1000K`
 
-### Object
+### Objects
 
-- Pod
-- Deployment
-- Service
-- Volume
-- Namespace
+- Pods
+- Deployments
+- Services
+- Volumes
+- Namespaces
+- Secrets
