@@ -1,4 +1,4 @@
-# Microservices
+# Microservices 🌌
 
 ## Project structure (Microservices)
 
@@ -8,6 +8,8 @@
 - worker - service
 
 ## Docker
+
+![Docker containers vs VM](https://qph.fs.quoracdn.net/main-qimg-fd65ceaa71fb44ea78134bd58dcba49d.webp)
 
 ### Linux namespace kinds
 

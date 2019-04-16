@@ -15,8 +15,11 @@ spec:
       containers:
         - name: worker
           image: liketurbo/docker-playground-worker
-          ports:
-            - containerPort: 3000
+          env:
+            - name: REDIS_HOST
+              value: redis-service
+            - name: REDIS_PORT
+              value: 6379
           resources:
             limits:
               memory: 512Mi
