@@ -11,6 +11,14 @@
 
 ![Docker containers vs VM](https://qph.fs.quoracdn.net/main-qimg-fd65ceaa71fb44ea78134bd58dcba49d.webp)
 
+### Tips & Tricks 🤩
+
+> `COPY` vs `ADD`
+
+`COPY` takes in a src and destination. It only lets you copy in a local file or directory from your host (the machine building the Docker image) into the Docker image itself.
+
+`ADD` lets you do that too, but it also supports 2 other sources. First, you can use a URL instead of a local file / directory. Secondly, you can extract a tar file from the source directly into the destination.
+
 ### Linux namespace kinds
 
 - Mount(mnt)

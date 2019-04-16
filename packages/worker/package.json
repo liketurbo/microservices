@@ -1,5 +1,5 @@
 {
-  "name": "@docker-playground/worker",
+  "name": "@microservices/worker",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
