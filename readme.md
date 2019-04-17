@@ -11,6 +11,11 @@
 
 ![Docker containers vs VM](https://qph.fs.quoracdn.net/main-qimg-fd65ceaa71fb44ea78134bd58dcba49d.webp)
 
+### Flags
+
+> `-d` - detached from console, which means it will run in background
+> `-p` - port mapping e.g. `-p HOST_PORT:GUEST_PORT`
+
 ### Tips & Tricks 🤩
 
 > `COPY` vs `ADD`
