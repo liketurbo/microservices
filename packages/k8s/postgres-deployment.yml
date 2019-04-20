@@ -25,6 +25,12 @@ spec:
             - name: postgres-volume
               mountPath: /var/lib/postgresql/data
               subPath: postgres
+          env:
+            - name: PG_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: PG_PASSWORD
+                  name: pgpassword
           resources:
             limits:
               memory: 512Mi

@@ -7,14 +7,25 @@
 - server - backend code
 - worker - service
 
-## Docker
+## Docker 🐳
 
 ![Docker containers vs VM](https://qph.fs.quoracdn.net/main-qimg-fd65ceaa71fb44ea78134bd58dcba49d.webp)
 
+> - Images
+> - Registries `(push|pull)`
+> - Containers
+
+### Commands
+
+`docker stop container_name && docker rm container_name` - stop and remove container
+`docker tag tag_name new_tag_name` - adding tag to image (images can have multiple tags)
+
 ### Flags
 
-> `-d` - detached from console, which means it will run in background
-> `-p` - port mapping e.g. `-p HOST_PORT:GUEST_PORT`
+> - `-d` - detached from console, which means it will run in background
+> - `-p` - port mapping e.g. `-p HOST_PORT:GUEST_PORT`
+> - `-i` - opens STDIN
+> - `-t` - allocates a pseudo terminal (TTY)
 
 ### Tips & Tricks 🤩
 
@@ -35,7 +46,14 @@
 
 ### Linux control groups
 
+> no comments 😎
+
 ## Kubernetes
+
+> Cluster
+>
+> - Control Plane node (master)
+> - Worker node(s)
 
 ### Storage
 
