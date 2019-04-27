@@ -46,14 +46,31 @@
 
 ### Linux control groups
 
-> no comments 😎
+no comments 😎
 
-## Kubernetes
+## Kubernetes ☸️
 
 > Cluster
 >
 > - Control Plane node (master)
 > - Worker node(s)
+
+> <b>User → kubectl → REST API Server (master) → Scheduler (master) → kubelet (worker) → docker (worker)</b>
+
+### Commands
+
+| description                | command                                                                    |
+| -------------------------- | -------------------------------------------------------------------------- |
+| <tt>deleting all pods</tt> | `kubectl delete daemonsets,replicasets,services,deployments,pods,rc --all` |
+| <tt>scale object</tt>      | `kubectl scale OBJECT OBJECT_NAME --replicas=REPLICAS_NUMBER`              |
+
+### Abbreviation
+
+| short    | full                    |
+| -------- | ----------------------- |
+| `svc`    | `services`              |
+| `rc`     | `replicationcontroller` |
+| `deploy` | `deployments`           |
 
 ### Storage
 
@@ -68,9 +85,12 @@
 > - cpu defined in `m (millicores, 1 / 1000 core)`
 > - memory defined in bytes `1Mi = 1024Ki` `1M = 1000K`
 
-### Objects
+### Objects <small>(that inside of worker node)</small>
 
-- Pods
+![](https://d33wubrfki0l68.cloudfront.net/5cb72d407cbe2755e581b6de757e0d81760d5b86/a9df9/docs/tutorials/kubernetes-basics/public/images/module_03_nodes.svg)
+
+- ReplicationController
+- Pod(s) <small>(inside runs containers)</small>
 - Deployments
 - Services
 - Volumes
