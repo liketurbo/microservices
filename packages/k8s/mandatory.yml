@@ -184,8 +184,7 @@ subjects:
     namespace: ingress-nginx
 
 ---
-
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-ingress-controller
@@ -220,6 +219,7 @@ spec:
             - --publish-service=$(POD_NAMESPACE)/ingress-nginx
             - --annotations-prefix=nginx.ingress.kubernetes.io
           securityContext:
+            allowPrivilegeEscalation: true
             capabilities:
               drop:
                 - ALL
@@ -260,5 +260,4 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 10
-
 ---

@@ -72,6 +72,10 @@ no comments 😎
 | `rc`     | `replicationcontroller` |
 | `deploy` | `deployments`           |
 
+### Glossary
+
+- Pods - making processes run as they are in same container, they share same <tt>Network</tt>, <tt>UTS namespaces</tt>, <tt>PID namespace</tt> (not by default!), filesystem can be shared only by using <i>Volume</i>
+
 ### Storage
 
 - Volume
