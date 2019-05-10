@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: worker-deployment
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: worker
-          image: liketurbo/docker-playground-worker
+          image: liketurbo/microservices-worker
           env:
             - name: REDIS_HOST
               value: redis-service

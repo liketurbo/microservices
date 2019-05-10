@@ -14,9 +14,9 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: client-cluster-ip-service
+              serviceName: client-service
               servicePort: 3000
           - path: /api/
             backend:
-              serviceName: server-cluster-ip-service
+              serviceName: server-service
               servicePort: 5000

@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: server-deployment
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: liketurbo/docker-playground-server
+          image: liketurbo/microservices-server
           ports:
             - containerPort: 3000
           env:
