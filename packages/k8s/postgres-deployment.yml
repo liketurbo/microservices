@@ -31,8 +31,3 @@ spec:
                 secretKeyRef:
                   key: PG_PASSWORD
                   name: pgpassword
-          resources:
-            limits:
-              memory: 512Mi
-            requests:
-              memory: 256Mi

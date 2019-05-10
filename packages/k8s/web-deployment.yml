@@ -17,8 +17,3 @@ spec:
           image: liketurbo/microservices-web
           ports:
             - containerPort: 3000
-          resources:
-            limits:
-              memory: 512Mi
-            requests:
-              memory: 256Mi
