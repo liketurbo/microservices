@@ -30,10 +30,6 @@ const routes = (app: Express) => {
 
     return res.send({ working: true });
   });
-
-  app.get('/', (_, res) => {
-    return res.send('Hello, World!');
-  });
 };
 
 export default routes;
