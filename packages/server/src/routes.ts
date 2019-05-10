@@ -4,10 +4,6 @@ import pgClient from './pg';
 import { client, publisher } from './redis';
 
 const routes = (app: Express) => {
-  app.get('/', (_, res) => {
-    return res.send('Hello, World!');
-  });
-
   app.get('/values/all', async (_, res) => {
     const values = await pgClient.query('SELECT * from values');
 
@@ -33,6 +29,10 @@ const routes = (app: Express) => {
     pgClient.query('INSERT INTO values(number) VALUES($1)', [index]);
 
     return res.send({ working: true });
+  });
+
+  app.get('/', (_, res) => {
+    return res.send('Hello, World!');
   });
 };
 
