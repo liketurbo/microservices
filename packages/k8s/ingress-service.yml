@@ -9,8 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: 'true'
 spec:
   rules:
-    - host: k8s-multi.com
-      http:
+    - http:
         paths:
           - path: /
             backend:
