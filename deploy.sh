@@ -1,13 +1,13 @@
-docker build -t liketurbo/microservices-web -f ./packages/web/Dockerfile ./packages/web
-docker tag liketurbo/microservices-web liketurbo/microservices-web:$GIT_SHA
-docker build -t liketurbo/microservices-server -f ./packages/server/Dockerfile ./packages/server
-docker tag liketurbo/microservices-server liketurbo/microservices-server:$GIT_SHA
-docker build -t liketurbo/microservices-worker -f ./packages/worker/Dockerfile ./packages/worker
-docker tag liketurbo/microservices-worker liketurbo/microservices-worker:$GIT_SHA
+docker build -t liketurbo/microservices-web:latest -f ./packages/web/Dockerfile ./packages/web
+docker tag liketurbo/microservices-web:latest liketurbo/microservices-web:$GIT_SHA
+docker build -t liketurbo/microservices-server:latest -f ./packages/server/Dockerfile ./packages/server
+docker tag liketurbo/microservices-server:latest liketurbo/microservices-server:$GIT_SHA
+docker build -t liketurbo/microservices-worker:latest -f ./packages/worker/Dockerfile ./packages/worker
+docker tag liketurbo/microservices-worker:latest liketurbo/microservices-worker:$GIT_SHA
 
-docker push liketurbo/microservices-web
-docker push liketurbo/microservices-server
-docker push liketurbo/microservices-worker
+docker push liketurbo/microservices-web:latest
+docker push liketurbo/microservices-server:latest
+docker push liketurbo/microservices-worker:latest
 docker push liketurbo/microservices-web:$GIT_SHA
 docker push liketurbo/microservices-server:$GIT_SHA
 docker push liketurbo/microservices-worker:$GIT_SHA
